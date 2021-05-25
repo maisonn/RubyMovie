@@ -9,6 +9,7 @@
 <p>
   <%= link_to "Write a Review", new_movie_review_path(@movie), class: 'btn btn-outline-warning mt-3' %>
 </p>
+<div class="star-rating" data-score= <%= @avg_review %> ></div>
 <p>
   <strong>Title:</strong>
   <%= @movie.title %>
@@ -30,7 +31,7 @@
 </p>
 </div>
 
-<div class="col-md-7 col-md-offset-1 mt-3">
+<div class="col-md-6 col-md-offset-1 mt-3">
   <h1 class="review_title"><%= @movie.title %></h1>
   <p><%= @movie.description %></p>
 
@@ -41,8 +42,7 @@
     <% @reviews.each do |review| %>
       <div class="reviews">
           <div class="star-rating" data-score= <%= review.rating %> ></div>
-          <strong>User:</strong>
-          <%= review.user.email %>
+          <strong><%= review.user.email %></strong>: <%= review.comment %>
       </div>
     <% end %>
   <% end %>
@@ -58,7 +58,8 @@
 
 <script>
     $('.star-rating').raty({
-      path: '/javascript/',
+      path: '/assets/',
+      number: 10,
       readOnly: true,
       score: function() {
             return $(this).attr('data-score');

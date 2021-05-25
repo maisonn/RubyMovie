@@ -3,9 +3,15 @@ body {
     background-color: rgb(145, 145, 145);
     color: #333; }
   
-  #notice {
-    color: green; }
-  
-  #MovieImages {
-    background: yellowgreen;
+#notice {
+  color: green; }
+
+#MovieImages {
+  background: yellowgreen;
+}
+.reviews {
+  padding: 10px 0;
+  .star-rating {
+    padding-bottom: 8px;
   }
+}
