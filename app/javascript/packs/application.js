@@ -10,6 +10,7 @@ import "channels"
 
 import "bootstrap"
 import "../stylesheets/application"
+require("packs/jquery.raty")
 
 Rails.start()
 Turbolinks.start()
