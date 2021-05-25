@@ -1,8 +1,14 @@
+<div class="container">
+<div class="row">
+<div class="col-md-4 mt-3">
 <% if @movie.image.attached? %>
-  <%= image_tag @movie.image %>
+  <%= image_tag @movie.image, style: "width:100%; border-radius: 8px" %>
 <% else %>
   <p>Image Missing</p>
 <% end %>
+<p>
+  <%= link_to "Write a Review", new_movie_review_path(@movie), class: 'btn btn-outline-warning mt-3' %>
+</p>
 <p>
   <strong>Title:</strong>
   <%= @movie.title %>
@@ -22,10 +28,33 @@
   <strong>Category:</strong>
   <%= @movie.category %>
 </p>
+</div>
 
+<div class="col-md-7 col-md-offset-1 mt-3">
+  <h1 class="review_title"><%= @movie.title %></h1>
+  <p><%= @movie.description %></p>
+
+  <% if @reviews.blank? %>
+    <h3>No reviews just yet, would you like to add the first!</h3>
+    <%= link_to "Write Review", new_movie_review_path(@movie), class: "btn btn-danger" %>
+  <% else %>
+    <% @reviews.each do |review| %>
+      <div class="reviews">
+        <p>
+          <strong>Rating:</strong>
+          <%= review.rating %>
+          <strong>User:</strong>
+          <%= review.user.email %>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+</div>
 <% if user_signed_in? %>
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
 <% else %>
 <%= link_to 'Back', :back %>
 <% end %>
+</div>
