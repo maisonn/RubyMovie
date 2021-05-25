@@ -7,6 +7,14 @@ class MoviesController < ApplicationController
     @movies = Movie.all.order(created_at: :desc)
   end
 
+  def search
+    if params[:search].present?
+      @movies = Movie.search(params[:search])
+    else
+      @movies = Movie.all.order(created_at: :desc)
+    end
+  end
+
   # GET /movies/1 or /movies/1.json
   def show
     @reviews = Review.where(movie_id: @movie.id).order(created_at: :desc)
