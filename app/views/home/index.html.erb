@@ -2,12 +2,12 @@
 
 <br>
 
-<div class="row justify-content-first">
+<div class="row justify-content-center">
 <% @movies.each do |movie| %>
-<div class="col-sm-6 col-md-3">
-  <div class="thumbnail" style="width:300px; border-radius: 8px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+<div class="col-sm-6 col-md-3 m-3" style="border-radius: 8px">
+  <div class="thumbnail" style="border-radius: 8px" id="MovieImages">
     <% if movie.image.attached? %>
-      <%= link_to (image_tag movie.image, style: "width:300px; height:300px; border-radius: 8px;"), movie %>
+      <%= link_to (image_tag movie.image, style: "width:100%; border-radius: 8px;"), movie %>
     <% else %>
       <p>Image Missing</p>
     <% end %>
