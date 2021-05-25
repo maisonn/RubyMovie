@@ -1,4 +1,8 @@
-<%= image_tag @movie.image %>
+<% if @movie.image.attached? %>
+  <%= image_tag @movie.image %>
+<% else %>
+  <p>Image Missing</p>
+<% end %>
 <p>
   <strong>Title:</strong>
   <%= @movie.title %>
