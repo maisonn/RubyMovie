@@ -5,9 +5,8 @@
     </a>
     <a class="navbar-brand" href="/">AdminPanel</a>
         <% if user_signed_in? %>
-                <%= link_to 'Movies', movies_path, class: 'btn btn-outline-success me-3' %>
-                <%= link_to 'Categories', categories_path, class: 'btn btn-outline-info me-3' %>
-                <%= link_to 'Reviews', root_path, class: 'btn btn-outline-warning me-3' %>
+                <%= link_to 'Manage Movies', movies_path, class: 'btn btn-outline-success me-3' %>
+                <%= link_to 'Manage Categories', categories_path, class: 'btn btn-outline-info me-3' %>
         <% end %>
   </div>
 </nav>

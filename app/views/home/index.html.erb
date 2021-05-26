@@ -5,26 +5,28 @@
 <div class="row justify-content-center">
 <% @movies.each do |movie| %>
 <div class="col-sm-6 col-md-3 m-3" style="border-radius: 8px">
-  <div class="thumbnail" style="border-radius: 8px; height:100%;" id="MovieImages">
+  <div class="thumbnail" style="border-radius: 8px">
     <% if movie.image.attached? %>
-      <%= link_to (image_tag movie.image, style: "width:100%; border-radius: 8px;"), movie %>
+      <%= link_to (image_tag movie.image, style: "border-radius: 8px;", width: "300", height: "450"), movie %>
     <% else %>
       <p>Image Missing</p>
     <% end %>
-    <table>
-      <tbody>
+  </div>
+  <div class="mx-auto" style="width: 200px;">
+  <table>
+      <tbody class="text-center">
           <tr>
-            <td><%= movie.title %></td>
+            <td><strong><%= movie.title %></strong></td>
           </tr>
           <tr>
-            <td><%= movie.rating %></td>
+            <td><strong><%= movie.category %></strong></td>
           </tr>
           <tr>
-            <td><%= movie.category %></td>
+            <td><strong>Rated:<%= movie.rating %></strong></td>
           </tr>
       </tbody>
     </table>
-  </div>
+    </div>
 </div>
 <% end %>
 </div>
