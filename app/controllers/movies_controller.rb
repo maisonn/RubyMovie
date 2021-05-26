@@ -4,7 +4,8 @@ class MoviesController < ApplicationController
 
   # GET /movies or /movies.json
   def index
-    @movies = Movie.page(params[:page]).order(created_at: :desc)
+    @q = Movie.ransack(params[:q])
+    @movies = @q.result.page(params[:page]).order(created_at: :desc)
   end
 
   def search
