@@ -49,10 +49,10 @@
 </div>
 </div>
 <% if user_signed_in? %>
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+<%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-outline-light mt-3" %>
+<%= link_to 'Back', movies_path, class: "btn btn-outline-light mt-3" %>
 <% else %>
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', :back, class: "btn btn-outline-light mt-3" %>
 <% end %>
 </div>
 
