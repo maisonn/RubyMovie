@@ -19,7 +19,6 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
       <th>Rating</th>
       <th>Category</th>
       <th colspan="3"></th>
@@ -30,7 +29,6 @@
     <% @movies.each do |movie| %>
       <tr>
         <td class="align-middle"><%= movie.title %></td>
-        <td class="align-middle"><%= movie.description %></td>
         <td class="align-middle"><%= movie.rating %></td>
         <td class="align-middle"><%= movie.category %></td>
         <td><%= link_to 'Show', movie, class: "btn btn-outline-info" %>
